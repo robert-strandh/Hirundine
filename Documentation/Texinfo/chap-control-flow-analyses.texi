@@ -11,3 +11,5 @@ computes a hash table that maps each instruction to a list of its
 predecessors.
 
 @section Finding basic blocks.
+
+@section Dominance
