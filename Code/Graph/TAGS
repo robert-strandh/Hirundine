@@ -1,0 +1,92 @@
+
+assignment-instruction.lisp,39
+(defclass assignment-instruction 3,35
+
+catch-instruction.lisp,34
+(defclass catch-instruction 3,35
+
+data.lisp,184
+(defclass datum 3,35
+(defclass register 13,204
+(defclass single-value-register 23,381
+(defclass multiple-value-register 26,431
+(defclass literal 29,483
+(defmethod writers 34,562
+
+enclose-instruction.lisp,36
+(defclass enclose-instruction 3,35
+
+exit-point-instruction.lisp,39
+(defclass exit-point-instruction 3,35
+
+funcall-instruction.lisp,36
+(defclass funcall-instruction 3,35
+
+global-function-reference-instruction.lisp,54
+(defclass global-function-reference-instruction 3,35
+
+if-instruction.lisp,31
+(defclass if-instruction 3,35
+
+instruction.lisp,67
+(defclass instruction 3,35
+(defmethod initialize-instance 25,459
+
+make-cell-instruction.lisp,39
+(defclass make-cell-instruction 8,275
+
+multiple-value-call-instruction.lisp,50
+(defclass multiple-value-call-instruction 10,446
+
+nop-instruction.lisp,32
+(defclass nop-instruction 3,35
+
+packages.lisp,35
+(defpackage #:hirundine-graph3,36
+
+parse-arguments-instruction.lisp,46
+(defclass parse-arguments-instruction 15,669
+
+progv-instruction.lisp,35
+(defclass progv-instruction 9,324
+
+read-cell-instruction.lisp,38
+(defclass read-cell-instruction 3,35
+
+read-static-environment-instruction.lisp,53
+(defclass read-static-environment-instruction 9,350
+
+receive-instruction.lisp,38
+(defclass receive-instruction 10,420
+
+return-instruction.lisp,35
+(defclass return-instruction 3,35
+
+set-static-environment-instruction.lisp,53
+(defclass set-static-environment-instruction 10,413
+
+special-variable-binding-instruction.lisp,55
+(defclass special-variable-binding-instruction 14,599
+
+special-variable-bound-instruction.lisp,52
+(defclass special-variable-bound-instruction 8,281
+
+special-variable-reference-instruction.lisp,55
+(defclass special-variable-reference-instruction 3,35
+
+special-variable-setq-instruction.lisp,51
+(defclass special-variable-setq-instruction 8,258
+
+throw-instruction.lisp,34
+(defclass throw-instruction 3,35
+
+unwind-instruction.lisp,37
+(defclass unwind-instruction 17,848
+
+utilities.lisp,120
+(defun map-instructions-arbitrary-order 3,35
+(defun initialize-predecessors-and-data 14,567
+(defun check-hir 33,1328
+
+write-cell-instruction.lisp,39
+(defclass write-cell-instruction 3,35
