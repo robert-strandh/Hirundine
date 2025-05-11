@@ -1,0 +1,104 @@
+@node Nodes of a control-flow graph
+@chapter Nodes of a control-flow graph
+
+@section Data nodes
+
+There are two kinds of data nodes in a @cfg{}; @emph{literals} and
+@emph{registers}.  In figures illustrating some part of a @cfg{}, a
+data node is drawn using an oval shape.  A literal can be the input of
+one or more instructions, and it corresponds to a @commonlisp{}
+object.  A register can be the input or the output of one or more
+instructions.
+
+@section Instruction nodes
+
+An instruction node corresponds to some kind of action, typically
+taking one or more inputs and generating one or more outputs.  An
+instruction node can have @math{0}, @math{1}, or @math{2} successors,
+depending on the type of the node.  Node types with @math{0}
+successors correspond to instructions with some non-local control
+transfer such as @code{return} or @code{unwind}.  An instruction node
+can have any number of predecessors.  The order between the
+predecessors is not significant.
+
+In figures illustrating some parts of a @cfg{}, an instruction node is
+drawn using a rectangular shape.
+
+@subsection @code{parse-arguments-instruction}
+
+An instruction of this type has no inputs and two or more outputs.
+It is usually the first instruction of a function, and it has a single
+successor.
+
+A slot in an instruction of this type contains a variation on an
+ordinary lambda list.  It differs from an ordinary lambda list in the
+following ways:
+
+@itemize @bullet
+@item
+There are no @code{&aux} parameters.
+@item
+All parameters introduced by the lambda list are lexical, and they are
+represented by @hirundine{} registers, rather than by @commonlisp{}
+symbols.
+@item
+@code{&optional} and @code{&key} parameters do not have an
+@emph{initform}, but each one has a @emph{supplied-p} parameter.  An
+@code{&optional} parameter is a proper list of two registers, the
+first register represents the parameter itself, and the second one
+represents a @emph{supplied-p} parameter.  A @code{&key} parameter is
+a list of two elements.  The first element is a list of two elements,
+a keyword and a @hirundine{} register for the parameter itself.  The
+second element of the main list is a @hirundine{} register for the
+@emph{supplied-p} parameter.
+@end itemize
+
+@noindent
+Two more slots in an instruction of this type contain @hirundine{}
+registers, one for the register holding the static-environment object
+for this function, and the other one for the register holding the
+dynamic-environment object upon function entry.
+
+The outputs of an instruction of this type are the static-environment
+register, the dynamic-environment register, and the lambda-list
+parameter registers.
+
+@subsection @code{assignment-instruction}
+
+An instruction of this type has one input and one output.  The input
+is a register or a literal.  The register might be a single-value
+register or a multiple-value register.  The output is a single-value
+register or a multiple-value register.
+
+An instruction of this type has a single successor.
+
+The effect of executing an instruction of this type is that the object
+in the input datum is copied to the output register.  If the input is
+a single-value register or a literal and the output is a
+multiple-value register, the output will contain a single object.  It
+the input is a multiple-value register and the output is a
+single-value register, the first object in the multiple-value register
+is copied to the output register.
+
+@subsection @code{enclose-instruction}
+
+An instruction of this type has no inputs and one output.  The output
+is a single-value register.  In addition, it has a slot containing an
+instruction of type @code{parse-arguments-instruction}.  The result of
+executing an instruction of this type is that the output register
+contains a function object created as a closure from the
+@code{parse-arguments-instruction}.  The closure does not yet contain
+a static environment, which is later supplied by an instruction of
+type @code{set-static-environment-instruction}.
+
+@subsection @code{return-instruction}
+
+An instruction of this type has one input and no outputs.  The input
+is a @code{multiple-value-register}.  An instruction of this type has
+no successors. The result of executing an instruction of this type is
+that control is transferred to the caller of this function, with the
+objects in the input register as the return values.
+
+@noindent
+@center @image{return-instruction}
+

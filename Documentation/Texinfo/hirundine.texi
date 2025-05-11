@@ -1,0 +1,40 @@
+\input texinfo
+
+@settitle Hirundine manual
+
+@titlepage
+@title Hirundine manual
+@end titlepage
+
+@contents
+
+@include logos.texi
+
+@node Top
+@top @hir{}
+
+This document describes @hirundine{} which is a library that
+represents a @commonlisp{} program as @hir{}, i.e., a control-flow
+graph consisting of @emph{instructions} and @emph{data}.
+
+@menu
+* Introduction:: Introduction
+* Nodes:: Nodes of a @cfg{}
+* Control:: Control-flow analyses
+* Data:: Data-flow analyses
+* Transformations:: Graph transformations
+* Index:: Complete index
+@end menu
+
+@include chap-introduction.texi
+@include chap-cfg.texi
+@include chap-control-flow-analyses.texi
+@include chap-data-flow-analyses.texi
+@include chap-transformations.texi
+
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@bye
