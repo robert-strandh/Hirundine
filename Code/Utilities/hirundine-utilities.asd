@@ -4,4 +4,5 @@
   :depends-on ("hirundine-graph")
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "map-instructions-arbitrary-order")))
