@@ -2,4 +2,5 @@
 
 (defpackage #:hirundine-utilities
   (:use #:common-lisp)
+  (:local-nicknames (#:graph #:hirundine-graph))
   (:export))
