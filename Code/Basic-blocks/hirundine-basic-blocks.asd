@@ -1,7 +1,8 @@
 (cl:in-package #:asdf-user)
 
 (defsystem "hirundine-basic-blocks"
-  :depends-on ("hirundine-graph")
+  :depends-on ("hirundine-graph"
+               "hirundine-predecessors")
   :serial t
   :components
   ((:file "packages")))
