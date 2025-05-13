@@ -5,4 +5,5 @@
                "hirundine-predecessors")
   :serial t
   :components
-  ((:file "packages")))
+  ((:file "packages")
+   (:file "basic-blocks")))
