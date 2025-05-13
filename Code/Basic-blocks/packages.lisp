@@ -2,4 +2,10 @@
 
 (defpackage #:hirundine-basic-blocks
   (:use #:common-lisp)
-  (:export))
+  (:local-nicknames (#:graph #:hirundine-graph)
+                    (#:predecessors #:hirundine-predecessors)
+                    (#:utilities #:hirundine-utilities))
+  (:export
+   #:comput-basic-blocks
+   #:leader
+   #:trailer))
