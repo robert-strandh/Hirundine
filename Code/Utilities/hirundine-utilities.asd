@@ -5,4 +5,5 @@
   :serial t
   :components
   ((:file "packages")
-   (:file "map-instructions-arbitrary-order")))
+   (:file "map-instructions-arbitrary-order")
+   (:file "depth-first-search-preorder")))
