@@ -6,4 +6,5 @@
   :components
   ((:file "packages")
    (:file "map-instructions-arbitrary-order")
-   (:file "depth-first-search-preorder")))
+   (:file "depth-first-search-preorder")
+   (:file "depth-first-search-postorder")))
