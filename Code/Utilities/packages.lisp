@@ -4,5 +4,6 @@
   (:use #:common-lisp)
   (:local-nicknames (#:graph #:hirundine-graph))
   (:export
-   #:map-instructions-arbitrary-order))
+   #:map-instructions-arbitrary-order
+   #:depth-first-search-preorder))
 
