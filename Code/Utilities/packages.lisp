@@ -6,5 +6,6 @@
   (:export
    #:map-instructions-arbitrary-order
    #:depth-first-search-preorder
-   #:depth-first-search-postorder))
+   #:depth-first-search-postorder
+   #:count-nodes))
 
