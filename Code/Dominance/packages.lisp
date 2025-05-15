@@ -4,4 +4,9 @@
   (:use #:common-lisp)
   (:local-nicknames (#:graph #:hirundine-graph)
                     (#:utilities #:hirundine-utilities))
-  (:export))
+  (:export
+   #:immediate-dominators
+   #:dominance-tree
+   #:dominators
+   #:immediate-dominator
+   #:strict-dominators))
