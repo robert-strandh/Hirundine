@@ -9,4 +9,6 @@
    #:dominance-tree
    #:dominators
    #:immediate-dominator
-   #:strict-dominators))
+   #:strict-dominators
+   #:dominance-frontiers
+   #:dominance-frontier))
