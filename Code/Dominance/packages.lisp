@@ -11,4 +11,5 @@
    #:immediate-dominator
    #:strict-dominators
    #:dominance-frontiers
-   #:dominance-frontier))
+   #:dominance-frontier
+   #:dominance-frontier-set))
