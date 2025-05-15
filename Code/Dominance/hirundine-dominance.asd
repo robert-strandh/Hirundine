@@ -7,7 +7,8 @@
   :components
   ((:file "packages")
    (:file "immediate-dominators")
-   (:file "dominance-tree")))
+   (:file "dominance-tree")
+   (:file "dominance-frontiers")))
 
 ;;;; Recall that a node A is said to DOMINATE a node B if and only if
 ;;;; every path from the start node to B includes A.  The dominance
