@@ -6,7 +6,8 @@
   :serial t
   :components
   ((:file "packages")
-   (:file "immediate-dominators")))
+   (:file "immediate-dominators")
+   (:file "dominance-tree")))
 
 ;;;; Recall that a node A is said to DOMINATE a node B if and only if
 ;;;; every path from the start node to B includes A.  The dominance
