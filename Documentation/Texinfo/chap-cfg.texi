@@ -99,6 +99,14 @@ no successors. The result of executing an instruction of this type is
 that control is transferred to the caller of this function, with the
 objects in the input register as the return values.
 
+@subsection @code{if-instruction}
+
+An instruction of this type has one input and no outputs.  The input
+is a register or a literal.  An instruction of this type has two
+successors.  The first successor is chosen if the object in the input
+is something other than the symbol @code{nil}.  The second successor
+is chosen if the object in the input is the symbol @code{nil}.
+
 @noindent
 @center @image{return-instruction}
 
