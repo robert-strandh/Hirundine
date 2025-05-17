@@ -107,6 +107,15 @@ successors.  The first successor is chosen if the object in the input
 is something other than the symbol @code{nil}.  The second successor
 is chosen if the object in the input is the symbol @code{nil}.
 
+@subsection @code{read-cell-instruction}
+
+An instruction of this type has one input and one output.  The input
+is a register containing a cell as created by the
+@code{make-cell-instruction}.  The output is a register.  An
+instruction of this type has a single successor.  The result of
+executing an instruction of this type is that the output register will
+contain the object contained in the cell.
+
 @noindent
 @center @image{return-instruction}
 
