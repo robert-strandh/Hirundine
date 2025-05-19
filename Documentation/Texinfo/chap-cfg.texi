@@ -63,6 +63,11 @@ The outputs of an instruction of this type are the static-environment
 register, the dynamic-environment register, and the lambda-list
 parameter registers.
 
+@subsection @code{nop-instruction}
+
+An instruction of this type has no inputs and no outputs.  It has a
+single successor.  It does nothing.
+
 @subsection @code{assignment-instruction}
 
 An instruction of this type has one input and one output.  The input
