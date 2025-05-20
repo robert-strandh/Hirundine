@@ -10,12 +10,13 @@
                ~@
                An instruction of this type has at least two inputs,~@
                and it has one output.  The first input is a register~@
-               contains the function object to be called.  The second~@
-               input is a register that contains a dynamic-environment~@
-               object.  Each of the remaining inputs is either a~@
-               register or a literal, and these remaining inputs are~@
-               the arguments to be passed to the callee.  The output~@
-               is a register that can be a multiple-value register.~@
+               that contains the function object to be called.  The~@
+               second input is a register that contains a dynamic-~@
+               environment object.  Each of the remaining inputs is~@
+               either a register or a literal, and these remaining~@
+               inputs are the arguments to be passed to the callee.~@
+               The output is a register that can be a multiple-value~@
+               register.~@
                ~@
                And instruction of this type has a single successor.~@
                ~@
