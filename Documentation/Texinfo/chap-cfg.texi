@@ -173,6 +173,15 @@ remaining inputs, and with a dynamic environment that is the value of
 the second input.  The values returned by the function will be
 contained in the output register.
 
+@subsection @code{global-function-reference-instruction}
+
+An instruction of this type has no inputs and one output.  The output
+is a single-value register.  It also has an additional slot containing
+the name of a global function.  An instruction of this type has a
+single successor.  The result of executing an instruction of this type
+is that the function named by the contents of the additional slot is
+stored in the output register.
+
 @noindent
 @center @image{return-instruction}
 
