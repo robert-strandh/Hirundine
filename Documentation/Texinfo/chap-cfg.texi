@@ -182,6 +182,14 @@ single successor.  The result of executing an instruction of this type
 is that the function named by the contents of the additional slot is
 stored in the output register.
 
+@subsection @code{special-variable-setq-instruction}
+
+An instruction of this type has two inputs and no outputs.  It also
+has an additional slot containing the name of the special variable to
+assign to.  The first input is a register containing a
+dynamic-environment object.  The second input is a register or a
+literal containing the new value of the special variable.
+
 @noindent
 @center @image{return-instruction}
 
