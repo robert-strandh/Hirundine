@@ -12,7 +12,7 @@
                ~@
                An instruction of this type has two inputs and no~@
                outputs.  The first input is a register containing~@
-               a dynaic-environment object.  The second input is~@
+               a dynamic-environment object.  The second input is~@
                a register or a literal.
                ~@
                An instruction of this type has a single successor.~@
