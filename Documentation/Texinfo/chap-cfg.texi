@@ -182,6 +182,22 @@ single successor.  The result of executing an instruction of this type
 is that the function named by the contents of the additional slot is
 stored in the output register.
 
+@subsection @code{special-variable-binding-instruction}
+
+An instruction of this type has two or three inputs and one output.
+The first input is a register that contains a dynamic-environment
+object.  The second input is a register or a literal with a name of a
+special variable to bind.  If present, the third input is a register
+or a literal.  The output is a register containing a
+dynamic-environment object.
+
+The result of executing an instruction of this type is to create a new
+binding for the special variable named by the second input and to
+store the augmented dynamic-environment object in the output
+register.  If the third input is present, its value is used as the
+value of the new binding.  If the third input is absent, the new
+binding has no value, as can be the case with PROGV.
+
 @subsection @code{special-variable-setq-instruction}
 
 An instruction of this type has two inputs and no outputs.  It also
