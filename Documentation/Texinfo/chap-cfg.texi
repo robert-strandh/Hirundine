@@ -70,12 +70,17 @@ single successor.  It does nothing.
 
 @subsection @code{assignment-instruction}
 
-An instruction of this type has one input and one output.  The input
-is a register or a literal.  The register might be a single-value
-register or a multiple-value register.  The output is a single-value
-register or a multiple-value register.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 1
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
 
-An instruction of this type has a single successor.
+@noindent
+The input of an instruction of this type is a register or a literal.
+The register might be a single-value register or a multiple-value
+register.  The output is a single-value register or a multiple-value
+register.
 
 The effect of executing an instruction of this type is that the object
 in the input datum is copied to the output register.  If the input is
