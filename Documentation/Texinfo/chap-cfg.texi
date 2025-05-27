@@ -145,12 +145,17 @@ is the symbol @code{nil}.
 
 @subsection @code{make-cell-instruction}
 
-An instruction of this type has one input and one output.  The input
-is a register or a literal.  The output is a register.  An instruction
-of this type has a single successor.  The result of executing an
-instruction of this type is that an object of type @code{cell} (the
-nature of which is not specified by this library) containing the
-object in the input, will be contained in the output register.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 1
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+The input is a register or a literal.  The output is a register.  The
+result of executing an instruction of this type is that an object of
+type @code{cell} (the nature of which is not specified by this
+library) containing the object in the input, will be contained in the
+output register.
 
 @subsection @code{read-cell-instruction}
 
