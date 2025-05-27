@@ -26,9 +26,11 @@ drawn using a rectangular shape.
 
 @subsection @code{parse-arguments-instruction}
 
-An instruction of this type has no inputs and two or more outputs.
-It is usually the first instruction of a function, and it has a single
-successor.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 0
+@item @tab Number of outputs    @tab at least 2
+@item @tab Number of successors @tab 1
+@end multitable
 
 A slot in an instruction of this type contains a variation on an
 ordinary lambda list.  It differs from an ordinary lambda list in the
