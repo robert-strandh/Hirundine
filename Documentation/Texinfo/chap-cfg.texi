@@ -32,6 +32,7 @@ drawn using a rectangular shape.
 @item @tab Number of successors @tab 1
 @end multitable
 
+@noindent
 A slot in an instruction of this type contains a variation on an
 ordinary lambda list.  It differs from an ordinary lambda list in the
 following ways:
@@ -73,6 +74,7 @@ parameter registers.
 @item @tab Number of successors @tab 1
 @end multitable
 
+@noindent
 An instruction of this type does nothing.
 
 @subsection @code{assignment-instruction}
@@ -99,14 +101,21 @@ is copied to the output register.
 
 @subsection @code{enclose-instruction}
 
-An instruction of this type has no inputs and one output.  The output
-is a single-value register.  In addition, it has a slot containing an
-instruction of type @code{parse-arguments-instruction}.  The result of
-executing an instruction of this type is that the output register
-contains a function object created as a closure from the
-@code{parse-arguments-instruction}.  The closure does not yet contain
-a static environment, which is later supplied by an instruction of
-type @code{set-static-environment-instruction}.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 0
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
+In addition to the inputs and the outputs, an instruction of this type
+has a slot containing an instruction of type
+@code{parse-arguments-instruction}.  The output is a single-value
+register.  The result of executing an instruction of this type is that
+the output register contains a function object created as a closure
+from the @code{parse-arguments-instruction}.  The closure does not yet
+contain a static environment, which is later supplied by an
+instruction of type @code{set-static-environment-instruction}.
 
 @subsection @code{return-instruction}
 
