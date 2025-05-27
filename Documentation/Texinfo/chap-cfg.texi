@@ -65,8 +65,13 @@ parameter registers.
 
 @subsection @code{nop-instruction}
 
-An instruction of this type has no inputs and no outputs.  It has a
-single successor.  It does nothing.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 0
+@item @tab Number of outputs    @tab 0
+@item @tab Number of successors @tab 1
+@end multitable
+
+An instruction of this type does nothing.
 
 @subsection @code{assignment-instruction}
 
