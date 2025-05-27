@@ -119,11 +119,16 @@ instruction of type @code{set-static-environment-instruction}.
 
 @subsection @code{return-instruction}
 
-An instruction of this type has one input and no outputs.  The input
-is a @code{multiple-value-register}.  An instruction of this type has
-no successors. The result of executing an instruction of this type is
-that control is transferred to the caller of this function, with the
-objects in the input register as the return values.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 1
+@item @tab Number of outputs    @tab 0
+@item @tab Number of successors @tab 0
+@end multitable
+
+The input is a @code{multiple-value-register}.  The result of
+executing an instruction of this type is that control is transferred
+to the caller of this function, with the objects in the input register
+as the return values.
 
 @subsection @code{if-instruction}
 
