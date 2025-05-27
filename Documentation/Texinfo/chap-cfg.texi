@@ -132,11 +132,16 @@ as the return values.
 
 @subsection @code{if-instruction}
 
-An instruction of this type has one input and no outputs.  The input
-is a register or a literal.  An instruction of this type has two
-successors.  The first successor is chosen if the object in the input
-is something other than the symbol @code{nil}.  The second successor
-is chosen if the object in the input is the symbol @code{nil}.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 1
+@item @tab Number of outputs    @tab 0
+@item @tab Number of successors @tab 2
+@end multitable
+
+The input is a register or a literal.  The first successor is chosen
+if the object in the input is something other than the symbol
+@code{nil}.  The second successor is chosen if the object in the input
+is the symbol @code{nil}.
 
 @subsection @code{make-cell-instruction}
 
