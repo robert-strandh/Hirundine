@@ -190,14 +190,19 @@ the cell will contain the object in the second input.
 
 @subsection @code{funcall-instruction}
 
-An instruction of this type has at least two inputs and it has one
-output.  The first input is a register that contains the function
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab at least 2
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
+The first input is a register that contains the function
 object to be called.  The second input is a register that contains a
 dynamic-environment object.  Each of the remaining inputs is either a
 register or a literal, and these remaining inputs are the arguments to
 be passed to the callee.  The output is a register that can be a
-multiple-value register.  An instruction of this type has a single
-successor.
+multiple-value register.
 
 The result of executing an instruction of this type is that the
 function will be called with the arguments in the remaining inputs,
