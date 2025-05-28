@@ -249,7 +249,13 @@ register.
 
 @subsection @code{special-variable-binding-instruction}
 
-An instruction of this type has two or three inputs and one output.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 2 or 3
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
 The first input is a register that contains a dynamic-environment
 object.  The second input is a register or a literal with a name of a
 special variable to bind.  If present, the third input is a register
@@ -261,7 +267,7 @@ binding for the special variable named by the second input and to
 store the augmented dynamic-environment object in the output
 register.  If the third input is present, its value is used as the
 value of the new binding.  If the third input is absent, the new
-binding has no value, as can be the case with PROGV.
+binding has no value, as can be the case with @code{progv}.
 
 @subsection @code{special-variable-setq-instruction}
 
