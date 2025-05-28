@@ -234,12 +234,18 @@ contained in the output register.
 
 @subsection @code{global-function-reference-instruction}
 
-An instruction of this type has no inputs and one output.  The output
-is a single-value register.  It also has an additional slot containing
-the name of a global function.  An instruction of this type has a
-single successor.  The result of executing an instruction of this type
-is that the function named by the contents of the additional slot is
-stored in the output register.
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 0
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
+An instruction of this type has an additional slot containing the name
+of a global function.  The output is a single-value register.  The
+result of executing an instruction of this type is that the function
+named by the contents of the additional slot is stored in the output
+register.
 
 @subsection @code{special-variable-binding-instruction}
 
