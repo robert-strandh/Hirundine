@@ -300,6 +300,24 @@ the value of the special variable named by the second input in the
 dynamic environment of the first input is store in the output
 register.
 
+@subsection @code{receive-instruction}
+
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 0
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
+An instruction of this type is created from a @code{block} special
+form.  Its purpose is to receive the values transmitted by a
+@code{unwind-instruction}.  This instruction is the successor of the
+@code{unwind-instruction} that transmits the values.
+
+The output is a register, and it is the same register that is used to
+receive the values from the @code{block} special form when that form
+exits normally (as opposed to when it exits as a result of a
+@code{return-from}.
 
 @center @image{return-instruction}
 
