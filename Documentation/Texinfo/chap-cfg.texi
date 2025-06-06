@@ -269,6 +269,12 @@ register.  If the third input is present, its value is used as the
 value of the new binding.  If the third input is absent, the new
 binding has no value, as can be the case with @code{progv}.
 
+We do not include instructions for determining whether a special
+variable has a value in some dynamic environment, nor for altering the
+value of such a variable, because the standard functions @code{boundp}
+and @code{symbol-value} and @code{(setf symbol-value)} can be used for
+this purpose.
+
 @subsection @code{special-variable-setq-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
