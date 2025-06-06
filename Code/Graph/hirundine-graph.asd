@@ -25,7 +25,6 @@
    (:file "assignment-instruction")
    (:file "progv-instruction")
    (:file "special-variable-binding-instruction")
-   (:file "special-variable-bound-instruction")
    (:file "global-function-reference-instruction")
    (:file "special-variable-reference-instruction")
    (:file "special-variable-setq-instruction")

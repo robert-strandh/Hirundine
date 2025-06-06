@@ -284,22 +284,6 @@ containing a dynamic-environment object.  The second input is a
 register or a literal containing the new value of the special
 variable.
 
-@subsection @code{special-variable-bound-instruction}
-
-@multitable {aaaa} {number of successors} {at least two}
-@item @tab Number of inputs     @tab 2
-@item @tab Number of outputs    @tab 1
-@item @tab Number of successors @tab 1
-@end multitable
-
-@noindent
-The first input is register containing a dynamic-environment object.
-The second input is the name of a special variable.  The output is a
-register.  The result of executing an instruction of this type is that
-the value of the special variable named by the second input in the
-dynamic environment of the first input is store in the output
-register.
-
 @subsection @code{receive-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
