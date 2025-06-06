@@ -1,12 +1,12 @@
 (cl:in-package #:hirundine-graph)
 
-(defclass special-variable-binding-instruction (instruction)
+(defclass special-variable-bind-instruction (instruction)
   ())
 
-(setf (documentation 'special-variable-binding-instruction 'type)
+(setf (documentation 'special-variable-bind-instruction 'type)
       (format nil
               "Class precedence list:~@
-               special-variable-binding-instruction, instruction, standard-object, t~@
+               special-variable-bind-instruction, instruction, standard-object, t~@
                ~@
                An instruction of this type has two or three inputs~@
                and one output.  The first input is a register containing~@
