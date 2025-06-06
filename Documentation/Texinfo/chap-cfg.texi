@@ -294,5 +294,23 @@ receive the values from the @code{block} special form when that form
 exits normally (as opposed to when it exits as a result of a
 @code{return-from}.
 
+@subsection @code{progv-instruction}
+
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 3
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
+The first input is a register containing a dynamic-environment
+object.  The second input is a register or a literal containing a list
+of symbols.  The third input is a register or a literal containing a
+list of objects.  The output is a register containing an augmented
+dynamic-environment object.
+
+An instruction of this type is used to implement the @code{progv}
+special operator.  It has the same semantics as that operator.
+
 @center @image{return-instruction}
 
