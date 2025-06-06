@@ -24,7 +24,7 @@
    (:file "return-instruction")
    (:file "assignment-instruction")
    (:file "progv-instruction")
-   (:file "special-variable-binding-instruction")
+   (:file "special-variable-bind-instruction")
    (:file "global-function-reference-instruction")
    (:file "enclose-instruction")
    (:file "catch-instruction")

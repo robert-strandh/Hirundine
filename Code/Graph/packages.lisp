@@ -30,7 +30,7 @@
    #:multiple-value-call-instruction
    #:return-instruction
    #:assignment-instruction
-   #:special-variable-binding-instruction
+   #:special-variable-bind-instruction
    #:global-function-reference-instruction
    #:function-name
    #:progv-instruction

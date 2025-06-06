@@ -247,7 +247,7 @@ result of executing an instruction of this type is that the function
 named by the contents of the additional slot is stored in the output
 register.
 
-@subsection @code{special-variable-binding-instruction}
+@subsection @code{special-variable-bind-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
 @item @tab Number of inputs     @tab 2 or 3
