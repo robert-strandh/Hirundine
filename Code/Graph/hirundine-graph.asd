@@ -26,7 +26,6 @@
    (:file "progv-instruction")
    (:file "special-variable-binding-instruction")
    (:file "global-function-reference-instruction")
-   (:file "special-variable-setq-instruction")
    (:file "enclose-instruction")
    (:file "catch-instruction")
    (:file "throw-instruction")))

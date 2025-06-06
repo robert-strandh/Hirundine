@@ -275,21 +275,6 @@ value of such a variable, because the standard functions @code{boundp}
 and @code{symbol-value} and @code{(setf symbol-value)} can be used for
 this purpose.
 
-@subsection @code{special-variable-setq-instruction}
-
-@multitable {aaaa} {number of successors} {at least two}
-@item @tab Number of inputs     @tab 2
-@item @tab Number of outputs    @tab 0
-@item @tab Number of successors @tab 1
-@end multitable
-
-@noindent
-An instruction of this type has an additional slot containing the name
-of the special variable to assign to.  The first input is a register
-containing a dynamic-environment object.  The second input is a
-register or a literal containing the new value of the special
-variable.
-
 @subsection @code{receive-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
