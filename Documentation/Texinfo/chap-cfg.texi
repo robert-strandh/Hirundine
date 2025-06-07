@@ -285,14 +285,17 @@ this purpose.
 
 @noindent
 An instruction of this type is created from a @code{block} special
-form.  Its purpose is to receive the values transmitted by a
-@code{unwind-instruction}.  This instruction is the successor of the
-@code{unwind-instruction} that transmits the values.
+form and from a @code{catch} special form.  Its purpose is to receive
+the values transmitted by a @code{unwind-instruction} or by a
+@code{throw-instruction}.  In the case of @code{block}, this
+instruction is the successor of the @code{unwind-instruction} that
+transmits the values.  In the case of @code{catch}, this instruction
+is the second successor of the @code{catch-instruction}.
 
 The output is a register, and it is the same register that is used to
 receive the values from the @code{block} special form when that form
-exits normally (as opposed to when it exits as a result of a
-@code{return-from}.
+exits normally, or to receive the values from the @cod{catch} special
+form when that form exists normally.
 
 @subsection @code{progv-instruction}
 
