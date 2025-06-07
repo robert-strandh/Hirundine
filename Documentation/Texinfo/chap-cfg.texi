@@ -131,6 +131,8 @@ executing an instruction of this type is that control is transferred
 to the caller of this function, with the objects in the input register
 as the return values.
 
+@center @image{return-instruction}
+
 @subsection @code{if-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
@@ -294,7 +296,7 @@ is the second successor of the @code{catch-instruction}.
 
 The output is a register, and it is the same register that is used to
 receive the values from the @code{block} special form when that form
-exits normally, or to receive the values from the @cod{catch} special
+exits normally, or to receive the values from the @code{catch} special
 form when that form exists normally.
 
 @subsection @code{progv-instruction}
@@ -315,5 +317,26 @@ dynamic-environment object.
 An instruction of this type is used to implement the @code{progv}
 special operator.  It has the same semantics as that operator.
 
-@center @image{return-instruction}
+@subsection @code{catch-instruction}
 
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 2
+@item @tab Number of outputs    @tab 1
+@item @tab Number of successors @tab 2
+@end multitable
+
+@noindent
+The first input is a register containing a dynamic-environment object.
+The second input is a register or a literal containing a @code{catch}
+tag.  The output is a register that will contain the
+dynamic-environment object of the input, augmented with information
+required for a corresponding @code{throw-instruction}.
+
+The first successor is chosen when the corresponding @code{catch} form
+is entered through normal control flow.  That successor is then the
+first instruction of the body of the @code{catch} form.  The second
+successor is chosen as a result of a @code{throw-instruction}.  That
+successor is then a @code{receive-instruction}.  The
+@code{receive-instruction} has an output register that is the same as
+the register used as an output for the forms in the body of the
+@code{catch} form.
