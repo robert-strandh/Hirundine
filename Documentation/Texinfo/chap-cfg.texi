@@ -340,3 +340,27 @@ successor is then a @code{receive-instruction}.  The
 @code{receive-instruction} has an output register that is the same as
 the register used as an output for the forms in the body of the
 @code{catch} form.
+
+@subsection @code{unwind-instruction}
+
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 2 or 3
+@item @tab Number of outputs    @tab 0
+@item @tab Number of successors @tab 1
+@end multitable
+
+This instruction is used to make a non-local control transfer as a
+result of a @code{return-from} or a @code{go}.  The first input is a
+register containing the dynamic-environment object representing the
+current dynamic environment.  The second input is a register
+containing the unique identifier of the exit point as created by the
+@code{exit-point-instruction}.  The third input is present only when
+this instruction is a result of @code{return-from} and it is a
+register (possibly a multiple-value register) or a literal
+representing the values(s) of the @code{return-from} form.
+
+When this instruction was created as a result of a @code{return-from},
+the successor is a @code{receive-instruction} that is to receive the
+values transmitted.  When this instruction was created as a result of
+a @code{go}, the successor is the first instruction of the form
+following the corresponding tag of the @code{tagbody} form.
