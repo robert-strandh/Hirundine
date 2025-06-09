@@ -1,18 +1,13 @@
 (cl:in-package #:hirundine-graph)
 
-;;; This instruction has two or three inputs and no outputs.  The
-;;; first input is a dynamic-environment object representing the
-;;; current dynamic environment.  The second input is the unique
-;;; identifier of an exit point as created by the
-;;; EXIT-POINT-INSTRUCTION.  The third input is used only when this
-;;; instruction is created from a RETURN-FROM, and only when the
-;;; corresponding BLOCK is in a context where its value is needed, and
-;;; is the value (perhaps multiple values) to be transferred to the
-;;; exit point.  The successor of this instruction is a
-;;; RECEIVE-INSTRUCTION that receives the values and transmits them to
-;;; the right register if this instruction is created from a
-;;; RETURN-FROM, or the instruction following a TABODY tag if this
-;;; instruction was created from a GO.
+;;; This instruction has three inputs and no outputs.  The first input
+;;; is a dynamic-environment object representing the current dynamic
+;;; environment.  The second input is the unique identifier of an exit
+;;; point as created by the BLOCK-INSTRUCTION.  The third input is a
+;;; register or a literal containing the values to transmit as the
+;;; values of the corresponding BLOCK special form.  The successor of
+;;; this instruction is a RECEIVE-INSTRUCTION that receives the values
+;;; and transmits them to the right register.
 
-(defclass unwind-instruction (instruction)
+(defclass return-from-instruction (instruction)
   ())
