@@ -23,7 +23,8 @@
    #:set-static-environment-instruction
    #:read-static-environment-instruction
    #:if-instruction
-   #:exit-point-instruction
+   #:block-instruction
+   #:tagbody-instruction
    #:unwind-instruction
    #:receive-instruction
    #:funcall-instruction
