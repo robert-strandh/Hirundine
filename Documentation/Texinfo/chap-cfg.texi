@@ -341,6 +341,40 @@ successor is then a @code{receive-instruction}.  The
 the register used as an output for the forms in the body of the
 @code{catch} form.
 
+@subsection @code{block-instruction}
+
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 1
+@item @tab Number of outputs    @tab 2
+@item @tab Number of successors @tab 2
+@end multitable
+
+@noindent
+An instruction of this type is created as a result of a @code{block}
+special form.  The input is a register containing a
+dynamic-environment object.  The first output is a register containing
+a dynamic-environment object which is like the one in the input except
+augmented with a new exit point.  The second output is a register that
+contains a unique identifier for this exit point.
+
+An instruction of this type has two successors. The first successor of
+this instruction corresponds to the first form of the body of the
+@code{block} form from which this instruction was created.  The second
+successor corresponds to a form that follows the body of the form from
+which this instruction was created The result of executing an
+instruction of this type normally, is that the register of the first
+output contains a dynamic-environment object which is like the one in
+the input, except that it is augmented with a new exit point, and the
+register of the second output contains a unique identifier for this
+exit point.  That unique identifier is used by the
+@code{return-from-instruction} to find the unique exit point where
+control is to be transferred.  The first successor becomes the next
+instruction to be executed.  When instead this instruction is executed
+as a result of a @code{return-from-instruction}, the second successor
+becomes the next instruction to be executed.  The output registers
+should not be used by the second successor of an instruction of this
+type, nor by any of its successors.
+
 @subsection @code{exit-point-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
