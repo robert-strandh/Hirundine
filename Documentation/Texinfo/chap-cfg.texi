@@ -391,27 +391,42 @@ a dynamic-environment object which is like the one in the input except
 augmented with a new exit point.  The second output is a register that
 contains a unique identifier for this exit point.
 
-@subsection @code{unwind-instruction}
+@subsection @code{return-from-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
-@item @tab Number of inputs     @tab 2 or 3
+@item @tab Number of inputs     @tab 3
 @item @tab Number of outputs    @tab 0
 @item @tab Number of successors @tab 1
 @end multitable
 
 @noindent
 This instruction is used to make a non-local control transfer as a
-result of a @code{return-from} or a @code{go}.  The first input is a
-register containing the dynamic-environment object representing the
-current dynamic environment.  The second input is a register
-containing the unique identifier of the exit point as created by the
-@code{exit-point-instruction}.  The third input is present only when
-this instruction is a result of @code{return-from} and it is a
-register (possibly a multiple-value register) or a literal
-representing the values(s) of the @code{return-from} form.
+result of a @code{return-from} form.  The first input is a register
+containing the dynamic-environment object representing the current
+dynamic environment.  The second input is a register containing the
+unique identifier of the exit point as created by the
+@code{block-instruction}.  The third input is a register (possibly a
+multiple-value register) or a literal representing the values(s) of
+the @code{return-from} form.
 
-When this instruction was created as a result of a @code{return-from},
-the successor is a @code{receive-instruction} that is to receive the
-values transmitted.  When this instruction was created as a result of
-a @code{go}, the successor is the first instruction of the form
-following the corresponding tag of the @code{tagbody} form.
+The successor is a @code{receive-instruction} that is to receive the
+values transmitted.
+
+@subsection @code{go-instruction}
+
+@multitable {aaaa} {number of successors} {at least two}
+@item @tab Number of inputs     @tab 2
+@item @tab Number of outputs    @tab 0
+@item @tab Number of successors @tab 1
+@end multitable
+
+@noindent
+This instruction is used to make a non-local control transfer as a
+result of a @code{go} form.  The first input is a register containing
+the dynamic-environment object representing the current dynamic
+environment.  The second input is a register containing the unique
+identifier of the exit point as created by the
+@code{tagbody-instruction}.
+
+The successor is the first instruction of the form following the
+corresponding tag of the @code{tagbody} form.
