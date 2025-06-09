@@ -25,7 +25,8 @@
    #:if-instruction
    #:block-instruction
    #:tagbody-instruction
-   #:unwind-instruction
+   #:return-from-instruction
+   #:go-instruction
    #:receive-instruction
    #:funcall-instruction
    #:multiple-value-call-instruction
