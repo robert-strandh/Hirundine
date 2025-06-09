@@ -375,7 +375,7 @@ becomes the next instruction to be executed.  The output registers
 should not be used by the second successor of an instruction of this
 type, nor by any of its successors.
 
-@subsection @code{exit-point-instruction}
+@subsection @code{tagbody-instruction}
 
 @multitable {aaaa} {number of successors} {at least two}
 @item @tab Number of inputs     @tab 1
@@ -384,13 +384,12 @@ type, nor by any of its successors.
 @end multitable
 
 @noindent
-An instruction of this type is created as a result of a @code{block}
-or a @code{tagbody} special form.  The input is a register containing
-a dynamic-environment object.  The first output is a register
-containing a dynamic-environment object which is like the one in the
-input except augmented with a new exit point.  The second output is a
-register that contains a unique identifier for this exit point.
-
+An instruction of this type is created as a result of a @code{tagbody}
+special form.  The input is a register containing a
+dynamic-environment object.  The first output is a register containing
+a dynamic-environment object which is like the one in the input except
+augmented with a new exit point.  The second output is a register that
+contains a unique identifier for this exit point.
 
 @subsection @code{unwind-instruction}
 
