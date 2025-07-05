@@ -33,7 +33,7 @@ value of one or more registers.
 @end itemize
 
 @noindent
-An arc o fthe @cfg{} is one of the following types:
+An arc of the @cfg{} is one of the following types:
 
 @itemize @bullet
 @item
