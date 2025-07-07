@@ -1,7 +1,7 @@
-(cl:in-package #:cleavir-dominance-test)
+(cl:in-package #:hirundine-dominance-test)
 
 (defun depth-first-search-preorder (start-node successor-fun)
-  (cleavir-utilities:depth-first-search-preorder
+  (hirundine-utilities:depth-first-search-preorder
    start-node successor-fun))
 
 (defun name (node)
@@ -42,7 +42,7 @@
     dominators))
 
 (defun test-one-chart (start-node)
-  (let ((d1 (cleavir-dominance:dominance-tree start-node #'successors))
+  (let ((d1 (hirundine-dominance:dominance-tree start-node #'successors))
         (d2 (slow-dominators start-node #'successors))
         (preorder (depth-first-search-preorder start-node #'successors)))
     (loop for node in preorder
@@ -55,7 +55,7 @@
 (defun test-dominance (&optional (n 10000))
   (loop repeat n
         do (let ((f (cleavir-test-utilities:random-flow-chart)))
-             (when (< (cleavir-utilities:count-nodes
+             (when (< (hirundine-utilities:count-nodes
                        f #'cleavir-test-utilities:successors)
                       50)
                (test-one-chart f)))))
@@ -71,7 +71,7 @@
                      (name node) (name node)))
     ;; Now draw all the arcs.
     (loop for node being each hash-key of dominance-tree
-          do (let ((idom (cleavir-dominance:immediate-dominator
+          do (let ((idom (hirundine-dominance:immediate-dominator
                           dominance-tree node)))
                (unless (null idom)
                  (format stream "   ~a -> ~a;~%"
@@ -113,20 +113,20 @@
 ;;; nodes Y such that 1: there exists a predecessor Z of Y such that X
 ;;; dominates Z, and 2: X does not strictly dominate Y.
 (defun slow-dominance-frontiers (start-node successor-fun)
-  (let ((predecessor-fun (cleavir-utilities:predecessor-function
+  (let ((predecessor-fun (hirundine-utilities:predecessor-function
                           start-node successor-fun))
-        (dominance-tree (cleavir-dominance:dominance-tree
+        (dominance-tree (hirundine-dominance:dominance-tree
                          start-node successor-fun))
-        (preorder (cleavir-utilities:depth-first-search-preorder
+        (preorder (hirundine-utilities:depth-first-search-preorder
                    start-node successor-fun))
         (result (make-hash-table :test #'eq)))
     (flet ((predecessors (node)
              (funcall predecessor-fun node))
            (dominates (n1 n2)
-             (member n1 (cleavir-dominance:dominators
+             (member n1 (hirundine-dominance:dominators
                          dominance-tree n2)))
            (strictly-dominates (n1 n2)
-             (member n1 (cleavir-dominance:strict-dominators
+             (member n1 (hirundine-dominance:strict-dominators
                          dominance-tree n2))))
       (loop for x in preorder
             do (loop for y in preorder
@@ -141,7 +141,7 @@
   (flet ((same-set-p (s1 s2)
            (and (null (set-difference s1 s2 :test #'eq))
                 (null (set-difference s2 s1 :test #'eq)))))
-    (let ((f1 (cleavir-dominance:dominance-frontiers
+    (let ((f1 (hirundine-dominance:dominance-frontiers
                start-node successor-fun))
           (f2 (slow-dominance-frontiers
                start-node successor-fun)))
