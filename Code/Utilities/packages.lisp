@@ -8,4 +8,3 @@
    #:depth-first-search-preorder
    #:depth-first-search-postorder
    #:count-nodes))
-
