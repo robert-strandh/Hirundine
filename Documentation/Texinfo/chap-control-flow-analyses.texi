@@ -10,6 +10,6 @@ Instructions are not linked to their predecessors.  This function
 computes a hash table that maps each instruction to a list of its
 predecessors.
 
-@section Finding basic blocks.
+@section Finding basic blocks
 
 @section Dominance
