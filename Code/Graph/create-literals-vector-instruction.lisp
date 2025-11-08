@@ -11,10 +11,14 @@
 ;;; be generated to create a literal that is then stored in the
 ;;; literals vector.
 ;;;
-;;; This instruction type creates such a literals vector.  A single
-;;; instance of this instruction is typically present in a HIR
-;;; program, and it then appears at the top level, to be executed when
-;;; the code is loaded.
+;;; This instruction type creates such a literals vector.  At most one
+;;; instance of this instruction is present in a HIR program, and it
+;;; then appears at the top level, to be executed when the code is
+;;; loaded.  The literals vector is unique across a HIR program, so we
+;;; do not represent it explicitly.  Some applications might pass it
+;;; as an additional object in the staic environment of each function.
+;;; Other applications might use PC-relative addressing to access it
+;;; directly by machine-code instructions.
 
 (defclass create-literals-vector-instruction (instruction)
   ())
@@ -25,14 +29,13 @@
                create-literals-vector-instruction, instruction, standard-object, t~@
                ~@
                An instruction of this type has a single input and~@
-               a single output.
+               no ouputs. 
                ~@
                An instruction of this type has a single successor~@
                ~@
                The input is a literal non-negative integer indicating~@
                the lenght of the literals vector to be created.~@
-               The output is a register.~@
                ~@
-               Executing an instruction of this type makes the output~@
-               register contain a vector of the length determined~@
-               by the input."))
+               Executing an instruction of this type creates a vector~@
+               of the length determined by the input and stores it~@
+               in some pre-determined location."))
