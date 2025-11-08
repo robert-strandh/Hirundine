@@ -30,4 +30,5 @@
    (:file "global-function-reference-instruction")
    (:file "enclose-instruction")
    (:file "catch-instruction")
-   (:file "throw-instruction")))
+   (:file "throw-instruction")
+   (:file "create-literals-vector-instruction")))
