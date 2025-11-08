@@ -31,4 +31,5 @@
    (:file "enclose-instruction")
    (:file "catch-instruction")
    (:file "throw-instruction")
-   (:file "create-literals-vector-instruction")))
+   (:file "create-literals-vector-instruction")
+   (:file "set-literal-instruction")))
