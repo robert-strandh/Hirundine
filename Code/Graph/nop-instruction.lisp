@@ -13,4 +13,4 @@
                ~@
                An instruction of this type has a single successor~@
                ~@
-               Executing an instruction of this time has no effect."))
+               Executing an instruction of this type has no effect."))
