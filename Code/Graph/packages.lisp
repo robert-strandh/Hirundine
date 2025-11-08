@@ -40,6 +40,7 @@
    #:enclose-instruction
    #:catch-instruction
    #:throw-instruction
+   #:create-literals-vector-instruction
    #:datum
    #:register
    #:name
