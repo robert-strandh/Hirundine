@@ -41,6 +41,7 @@
    #:catch-instruction
    #:throw-instruction
    #:create-literals-vector-instruction
+   #:load-literal-instruction
    #:set-literal-instruction
    #:datum
    #:register
