@@ -32,4 +32,5 @@
    (:file "catch-instruction")
    (:file "throw-instruction")
    (:file "create-literals-vector-instruction")
+   (:file "load-literal-instruction")
    (:file "set-literal-instruction")))
